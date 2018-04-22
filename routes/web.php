@@ -14,3 +14,14 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+// e.g.: http://localhost:2015/test
+Route::get('/test', function () {
+    \Log::debug('Test Log');
+    return 'It works';
+});
+
+// e.g.: curl http://localhost:2015/hello\?name\=paul
+Route::get('/hello', function () {
+    return ['hello' => request('name', 'world')];
+});
